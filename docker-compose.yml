@@ -1,0 +1,22 @@
+version: "1"
+services:
+  database:
+    image: postgres:latest
+    volumes:
+      - ./postgres-data:/var/lib/postgresql
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: diary
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+      PGDATA: /var/lib/pg_data
+  api:
+    depends_on:
+      - database
+    build:
+      context: .
+      dockerfile: Dockerfile
+volumes:
+  postgres-data:
