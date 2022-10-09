@@ -3,6 +3,10 @@
 jobs=0
 max-args=6
 
+[SIMILARITIES]
+# default 4
+min-similarity-lines=8
+
 [MESSAGES CONTROL]
 disable =
   import-error,
